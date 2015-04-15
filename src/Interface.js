@@ -1,3 +1,13 @@
-thermostat = new Thermostat;
+console.log("hello")
+var thermostat = new Thermostat();
 
-document.write(thermostat.temperature);
+var refreshTemperature = function(){
+  $('#temperature').text(thermostat.temperature);
+}
+
+$(document).ready(function(){
+  refreshTemperature();
+
+    $('.increase-temp').on
+
+});
