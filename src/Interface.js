@@ -23,14 +23,14 @@ $(document).ready(function() {
     refreshTemperature();
   });
 
-  // $('.power-saving').on('click', function () {
-  //  thermostat.switchPowerSave();
-  //  if (thermostat.powerSavingMode) {
-  //    refreshTemperature();
-  //    $('.power-saving').text('Power Saving On');
-  //  } else {
-  //    $('.power-saving').text('Power Saving Off');
-  //  };
- // });
+  $('.powersave').on('click', function () {
+   thermostat.PowerSave();
+   if (thermostat.powerSavingOn) {
+     refreshTemperature();
+     $('.powersave').text('Power Saving On');
+   } else {
+     $('.powersave').text('Power Saving Off');
+   };
+ });
 
 });
