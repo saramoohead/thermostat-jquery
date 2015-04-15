@@ -23,4 +23,20 @@ describe('Thermostat Front End', function(){
       $('#powersave').click();
       expect(document.getElementById("powersave").checked).toBe(false);
     });
+
+    // it('can increase max temp when power save mode is off', function(){
+    //   $('#powersave').click();
+    //   expect(document.getElementById("powersave").checked).toBe(false);
+    //   for(var i = 0; i < 6; i++){
+    //       $('input#up').click();
+    //   }
+    //   expect('#temperature').toContainText('26');
+    // })
+
+    it('temperature can go up and down consistently', function(){
+      $("input#down").click();
+      expect('#temperature').toContainText('19');
+      $("input#up").click();
+      expect('#temperature').toContainText('20');
+    });
 });

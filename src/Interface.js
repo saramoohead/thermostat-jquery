@@ -3,12 +3,10 @@ var thermostat = new Thermostat();
 
 var refreshTemperature = function() {
   $('#temperature').text(thermostat.temperature);
-  // changeColor();
+  if(thermostat.temperature < 18){document.getElementById("temperature").style.color = "green"}
+  else if(thermostat.temperature < 25){document.getElementById("temperature").style.color = "yellow"}
+  else if(thermostat.temperature >= 25){document.getElementById("temperature").style.color = "red"}
 };
-
-// var changeColor = function() {
-//   $('[class$=usage]').attr("class", thermostat.colorDisplay());
-// };
 
 $(document).ready(function() {
   refreshTemperature();
@@ -28,7 +26,8 @@ $(document).ready(function() {
    if (thermostat.powerSavingOn) {
      refreshTemperature();
      $('.powersave').text('Power Saving On');
-   } else {
+   } else if (thermostat.powerSavingOff) {
+     refreshTemperature();
      $('.powersave').text('Power Saving Off');
    };
  });
