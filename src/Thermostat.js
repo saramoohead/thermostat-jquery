@@ -16,6 +16,8 @@ Thermostat.prototype.powerSaveOff = function() {
   this.powerSave = false;
 };
 
+// use toggle
+
 Thermostat.prototype.powerSaveOn = function() {
   this.powerSave = true;
 };

@@ -19,9 +19,13 @@ describe('Thermostat Front End', function(){
       expect('#temperature').toContainText('19');
     });
 
+    it('has power saving mode on by default', function(){
+      expect('#powersave').toBeChecked();
+    });
+
     it('can turn off power save mode by unchecking the box', function(){
       $('#powersave').click();
-      expect(document.getElementById("powersave").checked).toBe(false);
+      expect('#powersave').not.toBeChecked();
     });
 
     // it('can increase max temp when power save mode is off', function(){
@@ -33,10 +37,26 @@ describe('Thermostat Front End', function(){
     //   expect('#temperature').toContainText('26');
     // })
 
+    it('cannot increase above 22 if power saving mode is on', function (){
+      $('#powersave').click();
+      $('input#up').click();
+      $('input#up').click();
+      $('input#up').click();
+      expect('#temperature').toContainText('22');
+    });
+
     it('temperature can go up and down consistently', function(){
       $("input#down").click();
       expect('#temperature').toContainText('19');
       $("input#up").click();
       expect('#temperature').toContainText('20');
+    });
+
+    it('temperature ...', function (){
+      $('#powersave').click();
+      $('input#down').click();
+      $('input#down').click();
+      $('input#down').click();
+      expect('#temperature').toContainText('18');
     });
 });
